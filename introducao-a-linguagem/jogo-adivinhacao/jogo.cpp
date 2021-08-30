@@ -1,25 +1,25 @@
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 using namespace std;
 
 int main() {
 
   srand(time(NULL));
-  const int SECRETNUMBER {rand()%100};
-  int guess {};
-  bool rightGuess {};
-  bool greaterGuess {};
-  bool wrongGuess {true};
+  const int SECRETNUMBER{rand() % 100};
+  int guess{};
+  bool rightGuess{};
+  bool greaterGuess{};
+  bool wrongGuess{true};
   int roundNumber{0};
 
-  double points {1000};
-  double lostPoints {0};
+  double points{1000};
+  double lostPoints{0};
 
-  char level {};
+  char level{};
 
-  int guessLimit {};
+  int guessLimit{};
 
   cout << "***********************\n";
   cout << "* Jogo da adivinhação *\n";
@@ -30,11 +30,14 @@ int main() {
 
   cin >> level;
 
-  if (level == 'F') guessLimit = 15;
-  else if (level == 'M') guessLimit = 10;
-  else guessLimit = 5;
+  if (level == 'F')
+    guessLimit = 15;
+  else if (level == 'M')
+    guessLimit = 10;
+  else
+    guessLimit = 5;
 
-  while (wrongGuess && guessLimit){
+  while (wrongGuess && guessLimit) {
     roundNumber++;
     cout << "Tentativa " << roundNumber << endl;
     cout << "Qual seu chute? ";
@@ -45,13 +48,15 @@ int main() {
     if (rightGuess) {
       cout << "Parabéns, você acertou o número!\n";
       wrongGuess = false;
-    }
-    else if (greaterGuess) cout << "Seu chute foi maior que o número secreto.\n";
-    else cout << "Seu chute foi menor que o número secreto.\n";
-    lostPoints += abs(SECRETNUMBER - guess)/2.0;
+    } else if (greaterGuess)
+      cout << "Seu chute foi maior que o número secreto.\n";
+    else
+      cout << "Seu chute foi menor que o número secreto.\n";
+    lostPoints += abs(SECRETNUMBER - guess) / 2.0;
     guessLimit--;
   }
-  if (wrongGuess) cout << "Você perdeu.. :(\n";
+  if (wrongGuess)
+    cout << "Você perdeu.. :(\n";
   else {
     cout << "Você finalizou o jogo com " << roundNumber << " tentativas e ";
     cout.precision(2);
