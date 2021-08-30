@@ -1,0 +1,1 @@
+bool letterExist(char userGuess);
